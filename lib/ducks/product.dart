@@ -13,7 +13,11 @@ class Product {
 
 abstract class ProductAction {}
 
-class LoadItemsAction extends ProductAction {}
+class LoadItemsAction extends ProductAction {
+  final List<Product> products;
+
+  LoadItemsAction(this.products);
+}
 
 class AddItemAction extends ProductAction {
   final Product product;
@@ -39,7 +43,7 @@ final cartReducer = combineReducers<List<Product>>([
 
 // various reducers for different actions
 List<Product> loadItemsReducer(List<Product> state, LoadItemsAction action) {
-  return state;
+  return action.products;
 }
 
 List<Product> addItemReducer(List<Product> state, AddItemAction action) {
@@ -51,5 +55,5 @@ List<Product> updateItemReducer(List<Product> state, UpdateItemAction action) {
 }
 
 List<Product> removeItemReducer(List<Product> state, RemoveItemAction action) {
-  return state;
+  return List.from(state)..remove(action.product);
 }

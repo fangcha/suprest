@@ -6,12 +6,9 @@ class AppState {
 
   AppState({this.products = const [], this.cartItems = const []});
 
-  factory AppState.initial() => new AppState(
-        products: [
-          Product(id: '001', name: 'Food', price: 100, imgUrl: 'assets/1.jpg'),
-          Product(id: '002', name: 'Vegie', price: 50, imgUrl: 'assets/2.jpg')
-        ],
-      );
+  factory AppState.initial() {
+    return AppState(products: [], cartItems: []);
+  }
 }
 
 AppState rootReducer(AppState state, dynamic action) {

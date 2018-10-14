@@ -9,9 +9,7 @@ import 'package:meta/meta.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 
-import './ducks/state.dart';
-
-// import 'category.dart';
+import '../ducks/state.dart';
 
 const double _kFlingVelocity = 2.0;
 
@@ -48,6 +46,7 @@ class _BackdropPanel extends StatelessWidget {
             onVerticalDragEnd: onVerticalDragEnd,
             onTap: onTap,
             child: Container(
+              color: Theme.of(context).primaryColor,
               height: 48.0,
               padding: EdgeInsetsDirectional.only(start: 16.0),
               alignment: AlignmentDirectional.centerStart,
@@ -246,7 +245,10 @@ class _BackdropState extends State<Backdrop>
                     onTap: _toggleBackdropPanelVisibility,
                     onVerticalDragUpdate: _handleDragUpdate,
                     onVerticalDragEnd: _handleDragEnd,
-                    title: Text('Cart ${store.state.cartItems.length} Items'),
+                    title: Text(
+                      'ตะกร้ามีของ ${store.state.cartItems.length} ชิ้น',
+                      style: TextStyle(fontSize: 20.0, color: Colors.white),
+                    ),
                     child: widget.frontPanel,
                   ),
                 ),

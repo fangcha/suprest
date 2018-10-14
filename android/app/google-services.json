@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "830510501849",
+    "firebase_url": "https://suprest-bkk.firebaseio.com",
+    "project_id": "suprest-bkk",
+    "storage_bucket": "suprest-bkk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:830510501849:android:dad48fb0492173e1",
+        "android_client_info": {
+          "package_name": "com.suprest.posapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "830510501849-730dgobuqenrad78ju6pgfn61ioo95i3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2DR-92QlptUKK3atdUy7u2PB26YOOv5o"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
