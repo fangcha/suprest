@@ -246,7 +246,7 @@ class _BackdropState extends State<Backdrop>
                     onVerticalDragUpdate: _handleDragUpdate,
                     onVerticalDragEnd: _handleDragEnd,
                     title: Text(
-                      'ตะกร้ามีของ ${store.state.cartItems.length} ชิ้น',
+                      'ตะกร้ามีของ ${store.state.cartItems.length} ชนิด',
                       style: TextStyle(fontSize: 20.0, color: Colors.white),
                     ),
                     child: widget.frontPanel,

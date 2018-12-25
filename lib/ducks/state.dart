@@ -1,4 +1,5 @@
-import 'product.dart';
+import '../model/product.dart';
+import 'cart.dart';
 
 class AppState {
   final List<Product> products;

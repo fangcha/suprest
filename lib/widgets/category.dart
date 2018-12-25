@@ -4,7 +4,8 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'dart:async';
 
 import '../ducks/state.dart';
-import '../ducks/product.dart';
+import '../ducks/cart.dart';
+import '../model/product.dart';
 
 class Category extends StatelessWidget {
   final Future<List<Product>> products;
@@ -43,8 +44,8 @@ class Category extends StatelessWidget {
                             Expanded(
                               child: Center(
                                 child: Text(
-                                  product.name,
-                                  style: TextStyle(fontSize: 50.0),
+                                  '${product.name} ${product.id}',
+                                  style: Theme.of(context).textTheme.display3,
                                 ),
                               ),
                             ),
@@ -52,7 +53,7 @@ class Category extends StatelessWidget {
                               padding: EdgeInsets.symmetric(vertical: 16.0),
                               child: Text(
                                 product.price.toString(),
-                                style: TextStyle(fontSize: 30.0),
+                                style: Theme.of(context).textTheme.display2,
                               ),
                             )
                           ],

@@ -18,39 +18,54 @@ class Cart extends StatelessWidget {
           .reduce((curr, next) => curr + next);
         } else { total = 0;}
         
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children:<Widget>[ 
-            Expanded(
-              child: ListView.builder(
-                itemExtent: 100.0,
-                itemCount: store.state.cartItems.length,
-                itemBuilder: (BuildContext context int index) {
-                 return CartItem(item: store.state.cartItems[index]);
-                },
-              ),
-            ),
-            Row(
-              children: <Widget>[
-                Expanded(
-                  child: Container(
+        return Scaffold(
+          floatingActionButton: Container(
+            margin: EdgeInsets.symmetric(horizontal: 16.0),
+            child: RaisedButton(
+              color: Theme.of(context).primaryColor,
+              padding: EdgeInsets.all(6.0),
+              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16.0)),
+              onPressed: () {},
+              elevation: 4.0,
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    child: Container(
+                      padding: EdgeInsets.all(10.0),
+                      color: Theme.of(context).primaryColor,
+                      child: Text(
+                        'Total',
+                        style: TextStyle(fontSize: 20.0, color: Colors.white),
+                        ),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(10.0),
                     color: Theme.of(context).primaryColor,
                     child: Text(
-                      'Total',
+                      total.toString(),
                       style: TextStyle(fontSize: 20.0, color: Colors.white),
-                      ),
-                  ),
-                ),
-                Container(
-                  color: Theme.of(context).primaryColor,
-                  child: Text(
-                    total.toString(),
-                    style: TextStyle(fontSize: 20.0, color: Colors.white),
-                  ),
-                ) 
-              ],
+                    ),
+                  ) 
+                ],
+              ),
             ),
-          ]
+          ),
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+          body: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children:<Widget>[ 
+              Expanded(
+                child: ListView.builder(
+                  itemExtent: 100.0,
+                  itemCount: store.state.cartItems.length,
+                  itemBuilder: (BuildContext context int index) {
+                   return CartItem(product: store.state.cartItems[index]);
+                  },
+                ),
+              ),
+            ]
+          ),
         );
       },
     );

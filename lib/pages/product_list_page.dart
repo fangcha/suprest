@@ -5,7 +5,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import '../widgets/category.dart';
 import '../widgets/backdrop.dart';
 import '../widgets/cart.dart';
-import '../ducks/product.dart';
+import '../model/product.dart';
 
 class ProductListPage extends StatefulWidget {
   final String title;
@@ -52,10 +52,18 @@ class _ProductListPageState extends State<ProductListPage> {
     CollectionReference ref =
         Firestore.instance.collection('products/in-stock/$category');
     QuerySnapshot snapshot = await ref.getDocuments();
-    List<Product> initialProducts = snapshot.documents
-        .map((document) =>
-            Product(name: document['name'], price: document['price']))
-        .toList();
+    List<Product> initialProducts = [];
+    int i = 0;
+    snapshot.documents.forEach((document) {
+      i++;
+      initialProducts.add(Product(
+          id: '$i',
+          name: document['name'],
+          price: document['price'],
+          quantity: 1,
+          stock: document['stock'],
+          sku: document['sku']));
+    });
 
     return initialProducts;
   }
